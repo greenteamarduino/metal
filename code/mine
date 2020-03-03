@@ -1,0 +1,46 @@
+//Digital Capacitive Touch Sensor Arduino Interfacing
+
+#define sensorPin 7 // capactitive touch sensor - Arduino Digital pin D0
+
+int relayPin = 8; // Output RelayPin - Arduino Digital pin D8
+int ledPin = 7; // Output display LED (on board LED) - Arduino Digital pin D7
+
+boolean currentState = LOW;
+boolean lastState = LOW;
+boolean RelayState = LOW;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
+  pinMode(sensorPin, INPUT);
+  pinMode(relayPin, OUTPUT);
+}
+
+void loop() {
+  int senseValue = digitalRead(sensorPin);
+  if (senseValue == HIGH){
+    digitalWrite(ledPin, HIGH);
+    Serial.println("Contact");
+  }
+  else //(senseValue == LOW)
+  {
+    digitalWrite(ledPin, LOW);
+    Serial.println("all clear for landing");
+    }
+
+  delay(1000);
+
+  currentState = digitalRead(sensorPin);
+    if (currentState == HIGH && lastState == LOW){
+    delay(1);
+
+    if (RelayState == HIGH){
+      digitalWrite(relayPin, LOW);
+      RelayState = LOW;
+    } else {
+      digitalWrite(relayPin, HIGH);
+      RelayState = HIGH;
+    }
+  }
+  lastState = currentState;
+}
