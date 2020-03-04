@@ -1,5 +1,5 @@
 //Digital Capacitive Touch Sensor Arduino Interfacing
-
+//stepper motor
 #define sensorPin 7 // capactitive touch sensor - Arduino Digital pin D0
 
   int relayPin = 8; // Output RelayPin - Arduino Digital pin D8
@@ -8,6 +8,37 @@
 boolean currentState = LOW;
 boolean lastState = LOW;
 boolean RelayState = LOW;
+void cw()
+{
+  digitalWrite (p0, HIGH);
+    digitalWrite (p1, LOW);
+      digitalWrite (p2, LOW);
+        digitalWrite (p3, LOW);
+        delay(stp);
+          digitalWrite (p0, LOW);
+            digitalWrite (p1, HIGH);
+              digitalWrite (p2, LOW);
+                digitalWrite (p3, LOW);
+                delay(stp;)
+                 digitalWrite (p0, LOW);
+            digitalWrite (p1, LOW);
+              digitalWrite (p2, HIGH);
+                digitalWrite (p3, LOW);
+                delay(stp;)
+ digitalWrite (p0, LOW);
+            digitalWrite (p1, LOW);
+              digitalWrite (p2, LOW);
+                digitalWrite (p3, HIGH);
+                delay(stp;)
+
+
+
+
+
+
+}
+#include <stepper.h>
+Stepper small_stepper(32, 8, 10, 9, 11);
 
 void setup() {
   Serial.begin(9600);
@@ -17,6 +48,8 @@ void setup() {
 }
 
 void loop() {
+  small_stepper.setSpeed(x);  //x is the speed of rotation (approximatly 0-750)
+  small_stepper.set(y);//y is the number of steps to take
   int senseValue = digitalRead(sensorPin);
   if (senseValue == HIGH){
     digitalWrite(ledPin, HIGH);
