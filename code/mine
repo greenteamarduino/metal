@@ -10,26 +10,26 @@ boolean lastState = LOW;
 boolean RelayState = LOW;
 void cw()
 {
-digitalWrite (p0, HIGH);
-digitalWrite (p1, LOW);
-digitalWrite (p2, LOW);
-digitalWrite (p3, LOW);
-delay(stp);
-digitalWrite (p0, LOW);
-digitalWrite (p1, HIGH);
-digitalWrite (p2, LOW);
-digitalWrite (p3, LOW);
-delay(stp;)
-digitalWrite (p0, LOW);
-digitalWrite (p1, LOW);
-digitalWrite (p2, HIGH);
-digitalWrite (p3, LOW);
-delay(stp;)
-digitalWrite (p0, LOW);
-digitalWrite (p1, LOW);
-digitalWrite (p2, LOW);
-digitalWrite (p3, HIGH);
-delay(stp;)
+    digitalWrite (p0, HIGH);
+    digitalWrite (p1, LOW);
+    digitalWrite (p2, LOW);
+    digitalWrite (p3, LOW);
+    delay(stp);
+    digitalWrite (p0, LOW);
+    digitalWrite (p1, HIGH);
+    digitalWrite (p2, LOW);
+    digitalWrite (p3, LOW);
+    delay(stp;)
+    digitalWrite (p0, LOW);
+    digitalWrite (p1, LOW);
+    digitalWrite (p2, HIGH);
+    digitalWrite (p3, LOW);
+    delay(stp;)
+    digitalWrite (p0, LOW);
+    digitalWrite (p1, LOW);
+    digitalWrite (p2, LOW);
+    digitalWrite (p3, HIGH);
+    delay(stp;)
 }
 #include <stepper.h>
 Stepper small_stepper(32, 8, 10, 9, 11);
